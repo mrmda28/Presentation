@@ -30,31 +30,31 @@ class Database(QWidget):
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
 
-        self.btn_back.setText('Back')
+        self.btn_back.setText('Назад')
         self.btn_back.setStyleSheet('''
-                                    max-width: 40px;
-                                    border-radius: 20px;
-                                    border: 1px solid gray;
-                                    background: gray;
-                                    color: white;
-                                    font-size: 15px;
-                                    font-weight: bold;
-                                    padding: 12px 45px;
-                                    margin-top: 30px;
-                                ''')
+                    max-width: 70px;
+                    border-radius: 20px;
+                    border: 1px solid gray;
+                    background: transparent;
+                    color: gray;
+                    font-size: 15px;
+                    font-weight: bold;
+                    padding: 12px 15px;
+                    margin-top: 30px;
+                ''')
         self.btn_back.clicked.connect(self.Back)
         self.btn_layout.addWidget(self.btn_back)
 
-        self.btn_next.setText('Next')
+        self.btn_next.setText('Далее')
         self.btn_next.setStyleSheet('''
-            max-width: 40px;
+            max-width: 70px;
             border-radius: 20px;
             border: 1px solid blue;
             background: blue;
             color: white;
             font-size: 15px;
             font-weight: bold;
-            padding: 12px 45px;
+            padding: 12px 15px;
             margin-top: 30px;
         ''')
         self.btn_next.clicked.connect(self.toGit)

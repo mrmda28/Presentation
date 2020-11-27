@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QTextEdit
-
+from PyQt5.QtWidgets import QTextEdit, QMessageBox
+from db import add
 from GUI.MainWindow import *
 
 
@@ -21,10 +21,12 @@ class Review(QWidget):
 
         self.btn_exit = QPushButton()
 
+        self.message = QMessageBox()
+
         self.init_ui()
 
     def init_ui(self):
-        self.review_layout.addStretch(1)
+        self.review_layout.addStretch(2)
         self.lbl.setText('Отзыв')
         self.lbl.setStyleSheet('font-size: 28px; color: black;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
@@ -67,7 +69,7 @@ class Review(QWidget):
 
         self.review_layout.addStretch(1)
 
-        self.btn_exit.setText('Exit')
+        self.btn_exit.setText('Отправить и выйти')
         self.btn_exit.setStyleSheet('''
             max-width: 40px;
             border-radius: 20px;
@@ -84,11 +86,33 @@ class Review(QWidget):
 
         self.btn_layout.setAlignment(QtCore.Qt.AlignCenter)
         self.review_layout.addLayout(self.btn_layout)
-        self.review_layout.addStretch(1)
-        self.layout.addLayout(self.review_layout)
+        self.review_layout.addStretch(2)
+        self.layout.addStretch(1)
+        self.layout.addLayout(self.review_layout, 4)
+        self.layout.addStretch(1)
         self.layout.setAlignment(QtCore.Qt.AlignCenter)
 
         self.setLayout(self.layout)
 
+
     def Exit(self):
-        QtCore.QCoreApplication.instance().quit()
+        try:
+            name = self.input_name.text()
+            text = self.review.toPlainText()
+
+            if (name and text) != '':
+                add(name, text)
+
+                self.message.setText('Успешно :)')
+                self.message.setStyleSheet('background: white;')
+                self.message.exec_()
+
+                QtCore.QCoreApplication.instance().quit()
+            else:
+                self.message.setText('Заполните все поля')
+                self.message.setStyleSheet('background: white;')
+                self.message.exec_()
+        except:
+            self.message.setText('В чем-то ошибка :(')
+            self.message.setStyleSheet('background: white;')
+            self.message.exec_()
