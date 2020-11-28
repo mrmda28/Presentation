@@ -72,8 +72,9 @@ class Statistics(QWidget):
 
         # self.layout.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.layout.addLayout(self.btn_layout)
         self.layout.addStretch(1)
+        self.layout.addLayout(self.btn_layout)
+
 
         self.setLayout(self.layout)
 

@@ -19,7 +19,7 @@ class Start(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.lbl.setText('Start Page')
+        self.lbl.setText('FaceID')
         self.lbl.setStyleSheet('font-size: 28px; color: black;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl)
@@ -29,16 +29,16 @@ class Start(QWidget):
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
 
-        self.btn_next.setText('Start')
+        self.btn_next.setText('Начинаем')
         self.btn_next.setStyleSheet('''
-            max-width: 40px;
+            max-width: 110px;
             border-radius: 20px;
             border: 1px solid blue;
             background: blue;
             color: white;
             font-size: 15px;
             font-weight: bold;
-            padding: 12px 45px;
+            padding: 12px 25px;
             margin-top: 30px;
         ''')
         self.btn_next.clicked.connect(self.toDescription)

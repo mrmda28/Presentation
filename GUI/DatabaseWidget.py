@@ -1,3 +1,5 @@
+from PyQt5.QtGui import QPixmap
+
 from GUI.MainWindow import *
 
 
@@ -9,9 +11,14 @@ class Database(QWidget):
 
         self.layout = QVBoxLayout()
         self.btn_layout = QHBoxLayout()
+        self.img_layout = QHBoxLayout()
+
 
         self.lbl = QLabel()
         self.lbl_description = QLabel()
+
+        self.img = QLabel()
+        self.pixmap = QPixmap('Data/Images/db.png')
 
         self.btn_next = QPushButton()
         self.btn_back = QPushButton()
@@ -29,6 +36,15 @@ class Database(QWidget):
         self.lbl_description.setStyleSheet('font-size: 24px; color: black;')
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
+
+        self.layout.addStretch(1)
+
+        self.img.setPixmap(self.pixmap.scaledToHeight(400))
+        self.img.setAlignment(QtCore.Qt.AlignCenter)
+        self.img_layout.addWidget(self.img)
+        self.layout.addLayout(self.img_layout)
+
+        self.layout.addStretch(1)
 
         self.btn_back.setText('Назад')
         self.btn_back.setStyleSheet('''

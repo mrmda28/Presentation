@@ -71,14 +71,14 @@ class Review(QWidget):
 
         self.btn_exit.setText('Отправить и выйти')
         self.btn_exit.setStyleSheet('''
-            max-width: 40px;
+            max-width: 150px;
             border-radius: 20px;
             border: 1px solid blue;
             background: blue;
             color: white;
             font-size: 15px;
             font-weight: bold;
-            padding: 12px 45px;
+            padding: 12px 15px;
             margin-top: 30px;
         ''')
         self.btn_exit.clicked.connect(self.Exit)
@@ -93,7 +93,6 @@ class Review(QWidget):
         self.layout.setAlignment(QtCore.Qt.AlignCenter)
 
         self.setLayout(self.layout)
-
 
     def Exit(self):
         try:

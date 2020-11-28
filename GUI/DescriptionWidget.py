@@ -28,16 +28,16 @@ class Description(QWidget):
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
 
-        self.btn_next.setText('Next')
+        self.btn_next.setText('Дальше')
         self.btn_next.setStyleSheet('''
-            max-width: 40px;
+            max-width: 100px;
             border-radius: 20px;
             border: 1px solid blue;
             background: blue;
             color: white;
             font-size: 15px;
             font-weight: bold;
-            padding: 12px 45px;
+            padding: 12px 25px;
             margin-top: 30px;
         ''')
         self.btn_next.clicked.connect(self.toCards)

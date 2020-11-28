@@ -5,8 +5,8 @@ from GUI.StartWidget import Start
 
 
 class MainWindow(QMainWindow):
-    WINDOW_WIDTH = 768
-    WINDOW_HEIGHT = 480
+    WINDOW_WIDTH = 900
+    WINDOW_HEIGHT = 600
 
     WINDOW_TITLE = 'Presentation'
 
@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(self.WINDOW_TITLE)
         # self.setWindowIcon(QtGui.QIcon('Data/Images/..'))
         # self.setStyleSheet('background: url(Data/Images/..);')
-        self.center_on_screen()
+        # self.center_on_screen()
         self.update_widget(Start(self))
         self.show()
 
@@ -38,8 +38,8 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(size_w, size_h)
         self.setCentralWidget(widget)
 
-    def center_on_screen(self):
-        qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.move(qr.topLeft())
+    # def center_on_screen(self):
+    #     qr = self.frameGeometry()
+    #     cp = QDesktopWidget().availableGeometry().center()
+    #     qr.moveCenter(cp)
+    #     self.move(qr.topLeft())

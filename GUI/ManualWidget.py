@@ -32,7 +32,7 @@ class Manual(QWidget):
 
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         self.mediaPlayer.setMedia(
-            QMediaContent(QUrl.fromLocalFile('/Users/mrmda28/Desktop/Project/Presentation/Data/manual.mov')))
+            QMediaContent(QUrl.fromLocalFile('/Users/mrmda28/Desktop/Project/Presentation/Data/manual.mp4')))
 
         self.videowidget = QVideoWidget()
 
