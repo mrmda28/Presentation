@@ -26,14 +26,15 @@ class Database(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.lbl.setText('Database Page')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.lbl.setText('Структура базы данных')
+        self.lbl.setStyleSheet('font-size: 36px; color: black;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addStretch(1)
         self.layout.addWidget(self.lbl)
 
-        self.lbl_description.setText('Description of this page')
-        self.lbl_description.setStyleSheet('font-size: 24px; color: black;')
+        self.lbl_description.setText('Users - пользователи,\nUser_Image - связь пользователя с картинкой,\nImages - '
+                                     'изображения')
+        self.lbl_description.setStyleSheet('font-size: 18px; color: black;')
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
 

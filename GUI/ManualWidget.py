@@ -39,6 +39,7 @@ class Manual(QWidget):
         self.btn_next = QPushButton()
         self.btn_back = QPushButton()
         self.btn_play = QPushButton()
+        self.btn_mute = QPushButton()
 
         self.init_ui()
 
@@ -46,7 +47,7 @@ class Manual(QWidget):
 
     def init_ui(self):
         self.lbl.setText('Обучающее видео')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.lbl.setStyleSheet('font-size: 36px; color: black;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.label_layout.addWidget(self.lbl)
 
@@ -68,6 +69,10 @@ class Manual(QWidget):
         self.btn_play.setStyleSheet('max-width: 30px; margin-top: 30px;')
         self.btn_play.clicked.connect(self.play)
 
+        self.btn_mute.setIcon(self.style().standardIcon(QStyle.SP_MediaVolume))
+        self.btn_mute.setStyleSheet('max-width: 30px; margin-top: 30px;')
+        self.btn_mute.clicked.connect(self.mute)
+
         self.btn_next.setText('Далее')
         self.btn_next.setStyleSheet('''
                             max-width: 70px;
@@ -82,9 +87,14 @@ class Manual(QWidget):
                         ''')
         self.btn_next.clicked.connect(self.toGit)
 
+        self.hboxLayout.addStretch(1)
         self.hboxLayout.addWidget(self.btn_back)
+        self.hboxLayout.addStretch(1)
         self.hboxLayout.addWidget(self.btn_play)
+        self.hboxLayout.addWidget(self.btn_mute)
+        self.hboxLayout.addStretch(1)
         self.hboxLayout.addWidget(self.btn_next)
+        self.hboxLayout.addStretch(1)
 
         self.v.addWidget(self.videowidget, 3)
 
@@ -105,17 +115,18 @@ class Manual(QWidget):
     def play(self):
         if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
             self.mediaPlayer.pause()
-
+            self.btn_play.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         else:
             self.mediaPlayer.play()
-
-    def mediastate_changed(self, state):
-        if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
             self.btn_play.setIcon(self.style().standardIcon(QStyle.SP_MediaPause))
+
+    def mute(self):
+        if self.mediaPlayer.isMuted() == True:
+            self.mediaPlayer.setMuted(False)
+            self.btn_mute.setIcon(self.style().standardIcon(QStyle.SP_MediaVolume))
         else:
-            self.btn_play.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
-
-
+            self.mediaPlayer.setMuted(True)
+            self.btn_mute.setIcon(self.style().standardIcon(QStyle.SP_MediaVolumeMuted))
 
     def toGit(self):
         from GUI.GitWidget import Git

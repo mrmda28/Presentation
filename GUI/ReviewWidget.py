@@ -7,7 +7,7 @@ class Review(QWidget):
     def __init__(self, window):
         super(Review, self).__init__(window)
         self.window = window
-        self.window.background('database')
+        self.window.background('review')
 
         self.layout = QHBoxLayout()
         self.review_layout = QVBoxLayout()
@@ -28,14 +28,14 @@ class Review(QWidget):
     def init_ui(self):
         self.review_layout.addStretch(2)
         self.lbl.setText('Отзыв')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.lbl.setStyleSheet('font-size: 32px; color: white; background: transparent;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.review_layout.addWidget(self.lbl)
 
         self.review_layout.addStretch(1)
 
         self.lbl_description.setText('Буду рад, если напишите отзыв о данной презентации')
-        self.lbl_description.setStyleSheet('font-size: 24px; color: black;')
+        self.lbl_description.setStyleSheet('font-size: 20px; color: white; background: transparent;')
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.review_layout.addWidget(self.lbl_description)
 

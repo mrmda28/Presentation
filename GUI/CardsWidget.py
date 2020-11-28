@@ -50,8 +50,8 @@ class Cards(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.lbl.setText('Выбирай свой путь')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.lbl.setText('Выберите свой путь')
+        self.lbl.setStyleSheet('font-size: 36px; color: black; background: transparent;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addStretch(1)
         self.layout.addWidget(self.lbl)
@@ -66,12 +66,12 @@ class Cards(QWidget):
         self.db_layout.addStretch(1)
 
         self.db_label.setText('База данных')
-        self.db_label.setStyleSheet('font-size: 28px; color: black;')
+        self.db_label.setStyleSheet('font-size: 28px; color: black; background: transparent;')
         self.db_label.setAlignment(QtCore.Qt.AlignCenter)
         self.db_layout.addWidget(self.db_label)
 
         self.db_d_label.setText('Здесь можно посмотреть\nструктуру базы данных')
-        self.db_d_label.setStyleSheet('font-size: 16px; color: gray;')
+        self.db_d_label.setStyleSheet('font-size: 16px; color: gray; background: transparent;')
         self.db_d_label.setAlignment(QtCore.Qt.AlignCenter)
         self.db_layout.addWidget(self.db_d_label)
 

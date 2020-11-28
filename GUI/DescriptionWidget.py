@@ -1,3 +1,5 @@
+from PyQt5.QtGui import QPixmap
+
 from GUI.MainWindow import *
 
 
@@ -10,6 +12,9 @@ class Description(QWidget):
         self.layout = QVBoxLayout()
         self.btn_layout = QVBoxLayout()
 
+        self.img = QLabel()
+        self.pixmap = QPixmap('Data/Images/app.png')
+
         self.lbl = QLabel()
         self.lbl_description = QLabel()
 
@@ -18,15 +23,27 @@ class Description(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.lbl.setText('Description Page')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.layout.addStretch(1)
+
+        self.img.setPixmap(self.pixmap.scaledToWidth(550))
+        self.img.setStyleSheet('background: transparent;')
+        self.img.setAlignment(QtCore.Qt.AlignCenter)
+        self.layout.addWidget(self.img)
+
+        self.layout.addStretch(1)
+
+        self.lbl.setText('Функционал приложения')
+        self.lbl.setStyleSheet('font-size: 28px; color: white; background: transparent;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl)
 
-        self.lbl_description.setText('Description of this page')
-        self.lbl_description.setStyleSheet('font-size: 24px; color: black;')
+        self.lbl_description.setText('Приложение позволяет пользователям использовать более быстрый\nи безопасный '
+                                     'вход в приложение с помощью FaceID')
+        self.lbl_description.setStyleSheet('font-size: 18px; color: white; background: transparent;')
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
+
+        self.layout.addStretch(1)
 
         self.btn_next.setText('Дальше')
         self.btn_next.setStyleSheet('''

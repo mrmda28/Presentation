@@ -24,14 +24,14 @@ class Statistics(QWidget):
 
     def init_ui(self):
         self.lbl.setText('Статистика времени входа')
-        self.lbl.setStyleSheet('font-size: 28px; color: black;')
+        self.lbl.setStyleSheet('font-size: 36px; color: black;')
         self.lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addStretch(1)
         self.layout.addWidget(self.lbl)
 
         self.lbl_description.setText('График показывает сколько пользователь всреднем затрачивает времени\nна вход с помощью '
                                      'FaceID и email/password')
-        self.lbl_description.setStyleSheet('font-size: 22px; color: black;')
+        self.lbl_description.setStyleSheet('font-size: 18px; color: black;')
         self.lbl_description.setAlignment(QtCore.Qt.AlignCenter)
         self.layout.addWidget(self.lbl_description)
 
